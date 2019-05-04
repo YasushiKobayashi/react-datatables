@@ -12,8 +12,9 @@
     "sourceMap": true,
     "incremental": true,
     "removeComments": false,
-    "moduleResolution": "node",
+    "allowJs": true,
     "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
     "outDir": "./dist/",
     "lib": [
       "es2019",

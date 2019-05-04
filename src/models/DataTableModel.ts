@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { orderBy } from 'lodash';
+import orderBy from 'lodash-es/orderBy';
 
 import Order from './enum/Order';
 

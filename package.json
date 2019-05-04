@@ -28,8 +28,11 @@
       "jest-enzyme"
     ],
     "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
+      "^.+\\.(j|t)sx?$": "ts-jest"
     },
+    "transformIgnorePatterns": [
+      "  <rootDir>/node_modules/(?!lodash-es/.*)"
+    ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts?|tsx?|js?|jsx?)$",
     "moduleFileExtensions": [
       "ts",
