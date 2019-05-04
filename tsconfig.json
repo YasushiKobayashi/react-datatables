@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "sourceMap": true,
+    "incremental": true,
+    "removeComments": false,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist/",
+    "lib": [
+      "es2019",
+      "dom",
+      "dom.iterable"
+    ],
+    "moduleResolution": "node",
+    "module": "es2015",
+    "target": "es2017",
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "typings/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "tags": [
+          "styled",
+          "styledComponents"
+        ]
+      }
+    ]
+  },
+  "exclude": [
+    "src/**/*.story.ts",
+    "src/**/*.story.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
+  ]
+}

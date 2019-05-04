@@ -1,0 +1,109 @@
+{
+  "name": "react-datatables",
+  "version": "1.0.0",
+  "main": "src/index.tsx",
+  "repository": "https://github.com/YasushiKobayashi/react-datatables.git",
+  "author": "YasushiKobayashi <ptpadan@gmail.com>",
+  "license": "MIT",
+  "prettier": {
+    "printWidth": 100,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "arrowParens": "avoid",
+    "parser": "flow"
+  },
+  "babel": {
+    "plugins": [
+      "styled-components"
+    ]
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "react",
+      "enzyme",
+      "jest-enzyme"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts?|tsx?|js?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:production": " NODE_ENV=production npm run build",
+    "start": "rollup -cw",
+    "test": "jest --runInBand --coverage",
+    "test:watch": "jest --watch",
+    "lint": "npm run lint:ts && npm run lint:sass",
+    "lint:ts": "eslint --ext js --ext jsx --ext ts --ext tsx src",
+    "lint:sass": "stylelint --config .stylelintrc.yml './src/**/*.ts' './src/**/*.tsx' './**/*.scss'",
+    "fix": "prettier --parser typescript --write 'src/**/*.ts{,x}'",
+    "build-storybook": "build-storybook",
+    "story": "start-storybook -h 0.0.0.0 -p 6006 -s ./public"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "lodash-es": "^4.17.11",
+    "react": "^16.8.6",
+    "shortid": "^2.2.14",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.12",
+    "@types/lodash-es": "^4.17.3",
+    "@types/react": "^16.8.15",
+    "@types/shortid": "^0.0.29",
+    "@types/storybook__addon-actions": "^3.4.2",
+    "@types/storybook__addon-links": "^3.3.4",
+    "@types/storybook__react": "^4.0.1",
+    "@types/styled-components": "^4.1.14",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.13.0",
+    "jest": "^24.7.1",
+    "jest-enzyme": "^7.0.2",
+    "prettier": "^1.17.0",
+    "prettier-stylelint": "^0.4.2",
+    "rollup": "^1.11.0",
+    "rollup-plugin-babili": "^3.1.1",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-typescript2": "^0.21.0",
+    "stylelint": "^10.0.1",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.6.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^5.4.5",
+    "typescript": "^3.4.5",
+    "typescript-styled-plugin": "^0.14.0"
+  }
+}

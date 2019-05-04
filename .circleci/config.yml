@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:10.15.0
+        environment:
+          CIRCLE_TEST_ARTIFACTS: /tmp/artifacts
+
+    steps:
+      - checkout
+      - run: mkdir -p $CIRCLE_TEST_ARTIFACTS
+      - run: npm i -g yarn
+      - run: yarn
+      - run: npm run test
+      - run: npm run lint
+      - run: npm run build-storybook
+      - run: npm run build:production
+      - run: cp -r storybook-static $CIRCLE_TEST_ARTIFACTS
+      - run:
+          command: |
+              cp -r storybook-static $CIRCLE_TEST_ARTIFACTS
+          when: on_fail
+      - store_artifacts:
+          path: /tmp/artifacts
