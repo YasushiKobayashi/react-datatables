@@ -1,7 +1,7 @@
 {
-  "name": "react-datatables",
+  "name": "datatables-react",
   "version": "1.0.0",
-  "main": "src/index.tsx",
+  "main": "dist/index.js",
   "repository": "https://github.com/YasushiKobayashi/react-datatables.git",
   "author": "YasushiKobayashi <ptpadan@gmail.com>",
   "license": "MIT",
@@ -44,6 +44,7 @@
     ]
   },
   "scripts": {
+    "prepublish": "npm run build:production",
     "build": "rollup -c",
     "build:production": " NODE_ENV=production npm run build",
     "start": "rollup -cw",
