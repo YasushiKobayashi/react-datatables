@@ -16,8 +16,12 @@ export default [
     output: [
       {
         sourcemap: true,
-        file: './dist/index.js',
-        format: 'cjs',
+        name: 'DataTablesReact',
+        file: './dist/datatables-react.js',
+        format: 'umd',
+        global: {
+          react: 'React',
+        },
       },
     ],
     external: ['react', 'react-is'],
@@ -25,7 +29,19 @@ export default [
   },
   {
     input: './src/index.tsx',
-    output: [{ file: 'dist/index.d.ts', format: 'es' }],
+    output: [
+      {
+        name: 'DataTablesReact',
+        file: './dist/index.js',
+        format: 'esm',
+      },
+    ],
+    external: ['react', 'react-is'],
+    plugins,
+  },
+  {
+    input: './src/index.tsx',
+    output: [{ file: 'dist/datatables-react.d.ts', format: 'es' }],
     external: ['react', 'react-is'],
     plugins: [dts()],
   },

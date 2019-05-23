@@ -1,7 +1,17 @@
 {
   "name": "datatables-react",
-  "version": "1.1.1",
-  "main": "dist/index.js",
+  "version": "1.0.0",
+  "main": "src/datatables-react.js",
+  "module": "dist/datatables-react.js",
+  "bundlesize": [
+    {
+      "path": "./dist/datatables-react.js"
+    }
+  ],
+  "typings": "dist/datatables-react.d.ts",
+  "typescript": {
+    "definition": "dist/datatables-react.d.ts"
+  },
   "repository": "https://github.com/YasushiKobayashi/react-datatables.git",
   "author": "YasushiKobayashi <ptpadan@gmail.com>",
   "license": "MIT",
