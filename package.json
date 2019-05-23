@@ -1,8 +1,8 @@
 {
   "name": "datatables-react",
   "version": "1.0.3",
-  "main": "src/datatables-react.js",
-  "module": "dist/datatables-react.js",
+  "main": "dist/datatables-react.js",
+  "module": "dist/index.js",
   "bundlesize": [
     {
       "path": "./dist/datatables-react.js"
