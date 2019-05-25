@@ -29,7 +29,9 @@ interface State {
 }
 
 const styleSearch = css({
-  marginBottom: 10,
+  '& > div': {
+    marginBottom: 10,
+  },
   '& table': {
     width: '100%',
     border: '1px solid rgba(0, 0, 0, 0.15)',
