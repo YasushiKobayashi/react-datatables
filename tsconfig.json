@@ -22,10 +22,10 @@
       "dom.iterable"
     ],
     "moduleResolution": "node",
-    "module": "es2015",
-    "target": "es2017",
+    "module": "ES2015",
+    "target": "es5",
     "jsx": "react",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
       "*": [
         "typings/*"

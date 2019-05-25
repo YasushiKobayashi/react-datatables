@@ -1,4 +1,4 @@
-import { KeiesType } from '../src/index';
+import { KeiesType } from '../src/DataTablesReact';
 import { ContentsType } from '../src/models/DataTableModel';
 
 const keies: KeiesType = [

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import { css } from 'emotion';
 
 interface Props {
   label?: string;
@@ -9,15 +9,22 @@ interface Props {
 
 const id = 'react-datatable-input';
 
+const styleWrapper = css({
+  display: 'flex',
+  '& input': {
+    width: '100%',
+  },
+});
+
 const Input: React.FC<Props> = props => {
   const { label, value, handleInput } = props;
 
-  const labelContent = label ? <Label>{label}</Label> : null;
+  const labelContent = label ? <label htmlFor={id}>{label}</label> : null;
 
   return (
-    <Wrapper>
+    <div className={styleWrapper}>
       {labelContent}
-      <InputStyled
+      <input
         type="text"
         id={id}
         data-test={id}
@@ -25,18 +32,8 @@ const Input: React.FC<Props> = props => {
         onChange={e => handleInput(e.currentTarget.value)}
         value={value}
       />
-    </Wrapper>
+    </div>
   );
 };
-
-const Wrapper = styled('div')`
-  display: flex;
-`;
-
-const Label = styled('label')``;
-
-const InputStyled = styled('input')`
-  width: 100%;
-`;
 
 export { Input as default };

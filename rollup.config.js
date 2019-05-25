@@ -4,7 +4,18 @@ import typescript from 'rollup-plugin-typescript2';
 import babili from 'rollup-plugin-babili';
 import { dts } from 'rollup-plugin-dts';
 
-const plugins = [nodeResolve(), commonjs({ jsnext: true }), typescript()];
+const plugins = [
+  nodeResolve({
+    include: 'node_modules/**',
+    namedExports: {
+      'node_modules/react/index.js': ['Component', 'PropTypes', 'createElement'],
+    },
+  }),
+  commonjs({ jsnext: false }),
+  typescript({
+    tsconfig: 'tsconfig.json',
+  }),
+];
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(babili({ comments: false }));
@@ -12,36 +23,25 @@ if (process.env.NODE_ENV === 'production') {
 
 export default [
   {
-    input: './src/index.tsx',
+    input: './src/DataTablesReact.tsx',
     output: [
       {
         sourcemap: true,
         name: 'DataTablesReact',
         file: './dist/datatables-react.js',
-        format: 'umd',
+        // format: 'cjs',
+        format: 'esm',
         global: {
           react: 'React',
         },
       },
     ],
-    external: ['react', 'react-is'],
+    external: ['react'],
     plugins,
   },
   {
-    input: './src/index.tsx',
-    output: [
-      {
-        name: 'DataTablesReact',
-        file: './dist/index.js',
-        format: 'esm',
-      },
-    ],
-    external: ['react', 'react-is'],
-    plugins,
-  },
-  {
-    input: './src/index.tsx',
-    output: [{ file: 'dist/datatables-react.d.ts', format: 'es' }],
+    input: './src/DataTablesReact.tsx',
+    output: [{ file: 'dist/datatables-react.d.ts', format: 'umd' }],
     external: ['react', 'react-is'],
     plugins: [dts()],
   },

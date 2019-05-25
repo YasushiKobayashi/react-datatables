@@ -1,6 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import * as shortid from 'shortid';
+import { css } from 'emotion';
 
 import Input from './component/input/Input';
 import Sort from './component/sort/Sort';
@@ -29,7 +28,20 @@ interface State {
   sortIndex: number;
 }
 
-class ReactDataTables extends React.Component<Props, State> {
+const styleSearch = css({
+  marginBottom: 10,
+  '& table': {
+    width: '100%',
+    border: '1px solid rgba(0, 0, 0, 0.15)',
+    '& th, td': {
+      verticalAlign: 'middle',
+      border: '1px solid rgba(0, 0, 0, 0.15)',
+      padding: 5,
+    },
+  },
+});
+
+class DataTablesReact extends React.Component<Props, State> {
   constructor(props: Props, state: State) {
     super(props, state);
 
@@ -80,6 +92,12 @@ class ReactDataTables extends React.Component<Props, State> {
     });
   }
 
+  generateKey(): string {
+    return Math.random()
+      .toString(36)
+      .slice(-8);
+  }
+
   render() {
     const { keies, contents, searchValue, order, sortIndex } = this.state;
     const { label } = this.props;
@@ -100,42 +118,25 @@ class ReactDataTables extends React.Component<Props, State> {
     const lists = contents.searchSort(searchValue, sortIndex, order).map(val => {
       const td = val.map(v => {
         const render = typeof v === 'string' ? <span dangerouslySetInnerHTML={{ __html: v }} /> : v;
-        return <td key={shortid.generate()}>{render}</td>;
+        return <td key={this.generateKey()}>{render}</td>;
       });
-      return <tr key={shortid.generate()}>{td}</tr>;
+      return <tr key={this.generateKey()}>{td}</tr>;
     });
 
     return (
-      <Wrapper>
-        <Search>
+      <div className={styleSearch}>
+        <div>
           <Input label={label} value={searchValue} handleInput={this.handleSearch} />
-        </Search>
-        <Table>
+        </div>
+        <table>
           <thead>
             <tr>{th}</tr>
           </thead>
           <tbody>{lists}</tbody>
-        </Table>
-      </Wrapper>
+        </table>
+      </div>
     );
   }
 }
 
-const Wrapper = styled('div')``;
-
-const Search = styled('div')`
-  margin-bottom: 10px;
-`;
-
-const Table = styled('table')`
-  width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  th,
-  td {
-    vertical-align: middle;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 5px;
-  }
-`;
-
-export { ReactDataTables as default, KeyInterface, KeiesType, ContentsType };
+export { DataTablesReact as default, KeyInterface, KeiesType, ContentsType };

@@ -1,8 +1,7 @@
-type OrderType = 'asc' | 'desc'
+type OrderType = 'asc' | 'desc';
 
 const asc: OrderType = 'asc';
 const desc: OrderType = 'desc';
-
 
 enum Order {
   asc,
