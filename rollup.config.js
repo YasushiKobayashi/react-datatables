@@ -29,8 +29,7 @@ export default [
         sourcemap: true,
         name: 'DataTablesReact',
         file: './dist/datatables-react.js',
-        // format: 'cjs',
-        format: 'esm',
+        format: 'cjs',
         global: {
           react: 'React',
         },
