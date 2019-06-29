@@ -26,4 +26,5 @@ dist/
 storybook-static/*
 
 analyze.txt
+test-report.html
 .rpt2_cache

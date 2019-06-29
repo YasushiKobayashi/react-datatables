@@ -18,9 +18,12 @@ jobs:
       - run: npm run build
       - run: cp -r storybook-static $CIRCLE_TEST_ARTIFACTS
       - run: cp analyze.txt $CIRCLE_TEST_ARTIFACTS
+      - run: cp test-report.html $CIRCLE_TEST_ARTIFACTS
       - run:
           command: |
-              cp -r storybook-static $CIRCLE_TEST_ARTIFACTS
+              cp test-report.html $CIRCLE_TEST_ARTIFACTS;
+              cp -r storybook-static $CIRCLE_TEST_ARTIFACTS;
+              cp storybook-static $CIRCLE_TEST_ARTIFACTS
           when: on_fail
       - store_artifacts:
           path: /tmp/artifacts
