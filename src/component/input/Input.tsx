@@ -27,7 +27,7 @@ const Input: React.FC<Props> = props => {
       <input
         type="text"
         id={id}
-        data-test={id}
+        data-testid={id}
         className={id}
         onChange={e => handleInput(e.currentTarget.value)}
         value={value}

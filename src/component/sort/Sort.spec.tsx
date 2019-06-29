@@ -1,21 +1,22 @@
 import * as React from 'react';
-import * as Enzyme from 'enzyme';
-import * as Adapter from 'enzyme-adapter-react-16';
+import { render, cleanup } from '@testing-library/react';
 
 import Sort from './Sort';
 
 import Order from '../../models/enum/Order';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 const base = {
   order: Order.asc,
 };
 
 describe('Sort', () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   it('renders correctly', () => {
     const props = Object.assign({}, base);
-    const tree = Enzyme.shallow(<Sort {...props} />);
-    expect(tree).toMatchSnapshot();
+    const { asFragment } = render(<Sort {...props} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });
