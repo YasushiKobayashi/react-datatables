@@ -25,4 +25,5 @@ coverage
 dist/
 storybook-static/*
 
+analyze.txt
 .rpt2_cache

@@ -15,8 +15,9 @@ jobs:
       - run: codecov
       - run: npm run lint
       - run: npm run build-storybook
-      - run: npm run build:production
+      - run: npm run build
       - run: cp -r storybook-static $CIRCLE_TEST_ARTIFACTS
+      - run: cp analyze.txt $CIRCLE_TEST_ARTIFACTS
       - run:
           command: |
               cp -r storybook-static $CIRCLE_TEST_ARTIFACTS

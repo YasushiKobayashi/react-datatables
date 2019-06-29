@@ -2,7 +2,9 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import babili from 'rollup-plugin-babili';
+import analyze from 'rollup-plugin-analyzer';
 import { dts } from 'rollup-plugin-dts';
+import fs from 'fs';
 
 const plugins = [
   nodeResolve({
@@ -19,6 +21,10 @@ const plugins = [
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(babili({ comments: false }));
+} else {
+  plugins.push(
+    analyze({ showExports: true, writeTo: analysis => fs.writeFileSync('analyze.txt', analysis) }),
+  );
 }
 
 export default [
